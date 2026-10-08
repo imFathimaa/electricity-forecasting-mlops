@@ -1,0 +1,5 @@
+/tn_history.csv
+mlflow.db 
+mlruns/ 
+mlartifacts/ 
+__pycache__/ 

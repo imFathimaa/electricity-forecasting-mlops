@@ -1,0 +1,6 @@
+{
+  "best_model": "Random Forest",
+  "MAE": 617.9,
+  "RMSE": 845.1,
+  "MAPE": 3.7
+}
