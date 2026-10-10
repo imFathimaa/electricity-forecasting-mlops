@@ -1,0 +1,32 @@
+name: Retrain model
+
+on:
+  push:
+    paths:
+      - "train.py"
+      - "tn_history.csv"
+  workflow_dispatch:
+  schedule:
+    - cron: "30 1 * * 1"
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt mlflow
+
+      - name: Train model
+        run: python train.py
+
+      - name: Save trained model
+        uses: actions/upload-artifact@v4
+        with:
+          name: model
+          path: models/
