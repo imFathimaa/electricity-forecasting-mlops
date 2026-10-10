@@ -22,8 +22,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt mlflow
 
-      - name: Train model
-        run: python train.py
+      - name: check for drift
+        run: python monitor.py
 
       - name: Save trained model
         uses: actions/upload-artifact@v4
