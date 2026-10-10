@@ -11,7 +11,7 @@ on:
 
 jobs:
   train:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
@@ -22,7 +22,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt mlflow
 
-      - name: check for drift
+      - name: Train model
+        run: python train.py
+
+      - name: Check for drift
         run: python monitor.py
 
       - name: Save trained model
